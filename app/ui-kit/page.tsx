@@ -1,0 +1,1 @@
+export {UiKit as default} from '@/pages/ui-kit-page'
