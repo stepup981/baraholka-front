@@ -1,3 +1,11 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["feature-sliced-design"],
+  "rules": {
+    "feature-sliced-design/layers-imports": ["error", {
+      "alias": "@"
+    }],
+    "feature-sliced-design/public-api-imports": "error",
+    "feature-sliced-design/import-order": "error"
+  }
 }
