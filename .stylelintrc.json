@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "color-no-invalid-hex": true,
+    "font-family-no-duplicate-names": true,
+    "function-calc-no-unspaced-operator": true,
+    "block-no-empty": true,
+    "unit-no-unknown": true,
+    "declaration-block-no-duplicate-properties": true,
+    "no-extra-semicolons": true,
+    "declaration-block-semicolon-newline-after": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "indentation": 2,
+    "max-empty-lines": 1,
+    "no-eol-whitespace": true,
+    "order/properties-alphabetical-order": true
+  }
+}
