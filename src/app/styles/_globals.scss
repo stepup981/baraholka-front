@@ -1,0 +1,36 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$container-width-sm: 540px;
+$container-width-md: 720px;
+$container-width-lg: 960px;
+$container-width-xl: 1140px;
+$container-padding: 15px;
+
+body {
+  background-color: var(--background-main);
+  color: var(--text-color);
+}
+
+.container {
+  padding: 0px 15px;
+  margin: 0 auto;
+
+  // @media (min-width: $sm) and (max-width: $md) {
+  //   max-width: $container-width-sm;
+  // }
+
+  // @media (min-width: $md) and (max-width: $lg) {
+  //   max-width: $container-width-md;
+  // }
+
+  // @media (min-width: $lg) and (max-width: $xl) {
+  //   max-width: $container-width-lg;
+  // }
+
+  // @media (min-width: $xl) {
+  //   max-width: $container-width-xl;
+  // }
+}
