@@ -1,7 +1,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 44px;
   height: 24px;
 }
 
@@ -28,8 +28,8 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   left: 0px;
   bottom: 4px;
   top: 0;
@@ -39,7 +39,7 @@
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
   border: 2px solid var(--main-color);
-  background: var(--background-main-light) url("../../../assets/sunny.svg");
+  background: var(--main-light) url("../../../assets/sunny.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -53,9 +53,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px);
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
   background: var(--background-main-dark) url("../../../assets/nightlight.svg");
   background-repeat: no-repeat;
   background-position: center;

@@ -1,7 +1,8 @@
 .logo {
   font-size: 32px;
+  color: var(--highlight);
 
   span {
-    color: var(--highlight);
+    color: var(--main-color);
   }
 }

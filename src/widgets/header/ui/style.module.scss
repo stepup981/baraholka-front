@@ -1,9 +1,12 @@
 .header {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   border-bottom: 1px solid var(--secondary-background);
 
   &__wrapper {
     margin-bottom: 12px;
     margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
