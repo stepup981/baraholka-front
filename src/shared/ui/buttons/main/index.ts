@@ -1,1 +1,1 @@
-export { default as MainButton } from "./ui";
+export { default as MainButton } from "./MainButton";

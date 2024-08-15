@@ -1,0 +1,9 @@
+.ui {
+  display: grid;
+  gap: 24px;
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

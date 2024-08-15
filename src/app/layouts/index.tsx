@@ -3,6 +3,8 @@ import { Rubik } from "next/font/google";
 
 import "../styles";
 
+import { Header } from "@/widgets/header";
+
 const inter = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,6 +16,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Header />
         <main className="container">{children}</main>
       </body>
     </html>

@@ -1,7 +1,18 @@
 :root {
-  --background-main: #edc7b7;
-  --text-color: #123c69;
-  --text-highlight: #ac3b61;
-  --text-annotation: #bab2b5;
-  --background-none-main: #eee2dc;
+  --main-color: #0362c8;
+
+  --background-main-light: #f0f0f0;
+  --background-main-dark: #121212;
+
+  --highlight: #ac3b61;
+  --annotation: #bab2b5;
+  --secondary-background: #eee2dc;
+}
+
+[data-theme="light"] {
+  background-color: var(--background-main-light);
+}
+
+[data-theme="dark"] {
+  background-color: var(--background-main-dark);
 }

@@ -1,16 +1,17 @@
-.main {
+.input {
   background-color: var(--secondary-background);
   border: 1px solid var(--main-color);
   border-radius: 6px;
   color: var(--main-color);
   padding: 6px 12px;
-  cursor: pointer;
+  cursor: text;
   transition:
     border-color 0.3s ease,
     color 0.3s ease;
 
-  &:hover {
+  &:focus {
     border: 1px solid var(--highlight);
     color: var(--highlight);
+    outline: none;
   }
 }
