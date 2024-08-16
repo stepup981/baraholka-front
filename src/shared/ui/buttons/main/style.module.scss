@@ -13,4 +13,17 @@
     border: 1px solid var(--highlight);
     color: var(--highlight);
   }
+
+  &:active {
+    transform: scale(1.1);
+    border: 1px solid var(--highlight);
+    color: var(--highlight);
+  }
+
+  &:disabled {
+    border: var(--annotation);
+    background-color: var(--annotation);
+    color: grey;
+    cursor: not-allowed;
+  }
 }

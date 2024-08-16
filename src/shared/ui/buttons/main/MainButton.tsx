@@ -3,9 +3,13 @@ import style from "./style.module.scss";
 
 import { IButtonProps } from "@/shared/lib/types/buttons";
 
-export default function MainButton({ children, onClick }: IButtonProps) {
+export default function MainButton({
+  children,
+  onClick,
+  disabled,
+}: IButtonProps) {
   return (
-    <button className={style.main} onClick={onClick}>
+    <button className={style.main} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

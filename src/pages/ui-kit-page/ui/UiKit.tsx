@@ -11,8 +11,10 @@ export default function UI() {
       <Title level={1}>UI Kit</Title>
       <div className={style.ui__buttons}>
         <MainButton>example</MainButton>
+        <MainButton disabled={true}>example</MainButton>
       </div>
-      <Input placeholder="example" />
+      <Input type="text" placeholder="example" />
+      <Input type="text" placeholder="example" disabled={true} />
     </div>
   );
 }

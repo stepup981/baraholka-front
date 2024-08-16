@@ -1,0 +1,31 @@
+.footer {
+  border-top: 1px solid var(--secondary-background);
+  margin-top: 32px;
+
+  &__wrapper {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .github {
+    display: grid;
+    place-items: center;
+    gap: 4px;
+
+    &__links {
+      display: flex;
+      gap: 6px;
+
+      a {
+        font-size: 10px;
+      }
+
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}

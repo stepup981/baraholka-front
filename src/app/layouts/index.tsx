@@ -4,6 +4,7 @@ import { Rubik } from "next/font/google";
 import "../styles";
 
 import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 const inter = Rubik({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       <body className={inter.className}>
         <Header />
         <main className="container">{children}</main>
+        <Footer />
       </body>
     </html>
   );

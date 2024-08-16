@@ -4,10 +4,11 @@ import style from "./style.module.scss";
 
 interface IMainInputProps {
   className?: string;
-  type?: string;
+  type: string;
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
+  placeholder: string;
+  disabled?: boolean;
 }
 
 export default function MainInput({
@@ -16,6 +17,7 @@ export default function MainInput({
   value,
   onChange,
   placeholder,
+  disabled,
 }: IMainInputProps) {
   return (
     <input
@@ -24,6 +26,7 @@ export default function MainInput({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      disabled={disabled}
     />
   );
 }
