@@ -6,24 +6,24 @@
   padding: 6px 12px;
   cursor: pointer;
   transition:
-    border-color 0.3s ease,
+    0.3s ease,
     color 0.3s ease;
 
   &:hover {
-    border: 1px solid var(--highlight);
-    color: var(--highlight);
+    background-color: var(--highlight);
   }
 
   &:active {
-    transform: scale(1.1);
-    border: 1px solid var(--highlight);
+    background-color: var(--main-color);
+    border-color: var(--highlight);
     color: var(--highlight);
+    transform: scale(0.98);
   }
 
   &:disabled {
     border: var(--annotation);
     background-color: var(--annotation);
-    color: grey;
+    color: var(--disabled);
     cursor: not-allowed;
   }
 }

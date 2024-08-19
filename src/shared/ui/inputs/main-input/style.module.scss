@@ -9,10 +9,6 @@
     border-bottom-color 0.3s ease,
     color 0.3s ease;
 
-  &::placeholder {
-    opacity: 0.6;
-  }
-
   &:focus {
     border-bottom: 1px solid var(--highlight);
     color: var(--highlight);
@@ -22,7 +18,7 @@
   &:disabled {
     border-bottom: 1px solid var(--annotation);
     background-color: var(--annotation);
-    color: grey;
+    color: var(--disabled);
     cursor: not-allowed;
   }
 }
