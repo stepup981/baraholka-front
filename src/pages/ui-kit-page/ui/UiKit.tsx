@@ -7,14 +7,16 @@ import { Title } from "@/shared/ui/title";
 
 export default function UI() {
   return (
-    <div className={style.ui}>
+    <section>
       <Title level={1}>UI Kit</Title>
-      <div className={style.ui__buttons}>
-        <MainButton>example</MainButton>
-        <MainButton disabled={true}>example</MainButton>
+      <div className={style.ui}>
+        <div className={style.ui__buttons}>
+          <MainButton>example</MainButton>
+          <MainButton disabled={true}>example</MainButton>
+        </div>
+        <Input type="text" placeholder="example" />
+        <Input type="text" placeholder="example" disabled={true} />
       </div>
-      <Input type="text" placeholder="example" />
-      <Input type="text" placeholder="example" disabled={true} />
-    </div>
+    </section>
   );
 }

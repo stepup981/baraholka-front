@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import style from "./style.module.scss";
 
-import { IButtonProps } from "@/shared/lib/types/buttons";
+import { IButtonProps } from "@/shared/types/buttons";
 
 interface IIconButtonProps extends IButtonProps {
   iconSrc: string;

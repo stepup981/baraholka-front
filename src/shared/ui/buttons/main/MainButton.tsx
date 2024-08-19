@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./style.module.scss";
 
-import { IButtonProps } from "@/shared/lib/types/buttons";
+import { IButtonProps } from "@/shared/types/buttons";
 
 export default function MainButton({
   children,

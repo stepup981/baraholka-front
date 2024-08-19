@@ -1,0 +1,10 @@
+.main {
+  background-color: var(--secondary-background);
+  border: 1px solid var(--main-color);
+  padding: 15px;
+  display: grid;
+  gap: 8px;
+  max-width: 600px;
+  width: inherit;
+  margin: 0 auto;
+}
