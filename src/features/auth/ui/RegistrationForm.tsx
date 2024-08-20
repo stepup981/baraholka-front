@@ -2,37 +2,70 @@
 import React, { useState } from "react";
 
 import registration from "@/features/auth/api/registration";
+import {
+  validateEmail,
+  validatePassword,
+} from "@/features/auth/model/validation";
 
 import { MainForm } from "@/shared/ui/forms/main";
 import { MainButton } from "@/shared/ui/buttons/main";
 import { Input } from "@/shared/ui/inputs/main-input";
 import { ErrorText } from "@/shared/ui/error-text";
-
-import { validateEmail, validatePassword } from "../model/validation";
+import { Title } from "@/shared/ui/title";
+import { Spinner } from "@/shared/ui/spinner";
 
 export default function RegistrationFrom() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<{
+    email?: string;
+    password?: string;
+    general?: string;
+  }>({});
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const submitRegistration = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
 
-    if (!validateEmail(email)) {
-      setError("Enter a correct email");
+    const emailError = validateEmail(email) ? "" : "Enter a correct email";
+    const passwordError = validatePassword(password)
+      ? ""
+      : "The password must contain 8 characters, including letters and numbers";
+
+    if (emailError || passwordError) {
+      setError({ email: emailError, password: passwordError });
       return;
     }
 
-    if (!validatePassword(password)) {
-      setError(
-        "The password must contain 8 characters. As well as letters and numbers",
-      );
-      return;
-    }
+    setError({});
+    setRegistrationSuccess(false);
 
-    registration({ email, password });
+    try {
+      setIsLoading(true);
+      await registration({ email, password });
+      setRegistrationSuccess(true);
+    } catch (error: any) {
+      const message = error.response?.data?.message;
+      setError({ general: message });
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (registrationSuccess) {
+    return (
+      <div>
+        <Title level={2}>Registration success</Title>
+        <p>Please, check your email</p>
+      </div>
+    );
+  }
+
   return (
     <MainForm action="POST" onSubmit={submitRegistration}>
       <Input
@@ -41,14 +74,17 @@ export default function RegistrationFrom() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      {error.email && <ErrorText>{error.email}</ErrorText>}
+
       <Input
-        type="text"
+        type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      {error.password && <ErrorText>{error.password}</ErrorText>}
+      {error.general && <ErrorText>{error.general}</ErrorText>}
       <MainButton>Confirm</MainButton>
-      {error && <ErrorText>{error}</ErrorText>}
     </MainForm>
   );
 }

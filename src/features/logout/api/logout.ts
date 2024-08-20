@@ -1,13 +1,12 @@
-import axiosConfigUser from "./axiosConfigUser";
-import axios from "axios";
-import { IUser, IResponseLogout } from "./types";
+import axiosConfigUser from "@/shared/api/user";
+import { IUser, IResponseLogout } from "@/entities/user/model/types";
 
 const logout = async (query: IUser): Promise<IResponseLogout | undefined> => {
   try {
-    const response = await axiosConfigUser.post("logout", { params: query });
+    const response = await axiosConfigUser.post("logout", query);
     return response.data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 

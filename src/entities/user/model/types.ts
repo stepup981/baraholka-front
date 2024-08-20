@@ -1,7 +1,8 @@
 export interface IUser {
-  email: string;
-  password: string;
+  email: string | undefined;
+  password?: string;
   isActivated?: boolean;
+  id?: string;
 }
 
 export interface IResponseUser {

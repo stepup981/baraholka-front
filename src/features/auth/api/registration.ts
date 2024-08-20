@@ -5,14 +5,10 @@ const registration = async (
   query: IUser,
 ): Promise<IResponseUser | undefined> => {
   try {
-    const response = await axiosConfigUser.post("registration", query, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await axiosConfigUser.post("registration", query);
     return response.data;
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    throw error;
   }
 };
 
