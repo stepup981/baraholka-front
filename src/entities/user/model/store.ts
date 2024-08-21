@@ -10,6 +10,7 @@ const useUserStore = create<UserStore>((set) => ({
   user: {
     email: "",
     isActivated: false,
+    id: "",
   },
   setInfoOnUser: (info) => set({ user: info }),
 }));

@@ -3,14 +3,16 @@ import style from "./style.module.scss";
 
 import { IButtonProps } from "@/shared/types/buttons";
 
-export default function MainButton({
+const MainButton: React.FC<IButtonProps> = ({
   children,
   onClick,
   disabled,
-}: IButtonProps) {
+}) => {
   return (
-    <button className={style.main} onClick={onClick} disabled={disabled}>
+    <button className={style.mainButton} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
-}
+};
+
+export default MainButton;

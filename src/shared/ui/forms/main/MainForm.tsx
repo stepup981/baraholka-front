@@ -7,14 +7,12 @@ interface IMainFormProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-export default function MainForm({
-  action,
-  onSubmit,
-  children,
-}: IMainFormProps) {
+const MainForm: React.FC<IMainFormProps> = ({ action, onSubmit, children }) => {
   return (
-    <form className={style.main} action={action} onSubmit={onSubmit}>
+    <form className={style.mainForm} action={action} onSubmit={onSubmit}>
       {children}
     </form>
   );
-}
+};
+
+export default MainForm;

@@ -4,10 +4,11 @@ import React from "react";
 import logout from "@/features/logout/api/logout";
 
 import { MainButton } from "@/shared/ui/buttons/main";
-export default function AccountLogout() {
+export default function AccountLogout({ onLogOut }: { onLogOut: () => void }) {
   const logoutAccount = () => {
-    console.log("Вышел");
-    // logout()
+    logout();
+    localStorage.removeItem("token");
+    onLogOut();
   };
 
   return (

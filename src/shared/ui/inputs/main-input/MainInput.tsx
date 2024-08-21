@@ -3,22 +3,22 @@ import React from "react";
 import style from "./style.module.scss";
 
 interface IMainInputProps {
-  className?: string;
   type: string;
-  value?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
+  value?: string;
+  className?: string;
   disabled?: boolean;
 }
 
-export default function MainInput({
+const MainInput: React.FC<IMainInputProps> = ({
   className,
   type = "text",
   value,
   onChange,
   placeholder,
   disabled,
-}: IMainInputProps) {
+}) => {
   return (
     <input
       className={`${style.input} ${className}`}
@@ -29,4 +29,6 @@ export default function MainInput({
       disabled={disabled}
     />
   );
-}
+};
+
+export default MainInput;

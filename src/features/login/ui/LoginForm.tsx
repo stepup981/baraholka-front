@@ -10,7 +10,6 @@ import { MainButton } from "@/shared/ui/buttons/main";
 import { Input } from "@/shared/ui/inputs/main-input";
 import { MainForm } from "@/shared/ui/forms/main";
 import { ErrorText } from "@/shared/ui/error-text";
-import { Spinner } from "@/shared/ui/spinner";
 
 import { path } from "@/shared/routing";
 
@@ -26,8 +25,11 @@ export default function LoginForm({ onLogin }: { onLogin: () => void }) {
     setError("");
     try {
       const userData = await login({ email, password });
+      localStorage.setItem("token", userData?.accessToken ?? "");
       setInfoOnUser({
         email: userData?.user.email,
+        isActivated: userData?.user.isActivated,
+        id: userData?.user.id,
       });
       onLogin();
     } catch (error: any) {

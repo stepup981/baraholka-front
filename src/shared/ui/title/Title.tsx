@@ -7,11 +7,13 @@ interface ITitle {
   className?: string;
 }
 
-export default function Title({ level, children, className = "" }: ITitle) {
+const Title: React.FC<ITitle> = ({ level, children, className }) => {
   const Tag: keyof JSX.IntrinsicElements =
     `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
     <Tag className={`${style[`title-${level}`]} ${className}`}>{children}</Tag>
   );
-}
+};
+
+export default Title;

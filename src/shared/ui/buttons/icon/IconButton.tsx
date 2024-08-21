@@ -9,14 +9,16 @@ interface IIconButtonProps extends IButtonProps {
   altText: string;
 }
 
-export default function IconButton({
+const IconButton: React.FC<IIconButtonProps> = ({
   iconSrc,
   altText,
   onClick,
-}: IIconButtonProps) {
+}) => {
   return (
     <button onClick={onClick} className={style.iconButton}>
       <Image src={iconSrc} alt={altText} width={24} height={24} />
     </button>
   );
-}
+};
+
+export default IconButton;
