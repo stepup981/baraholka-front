@@ -6,7 +6,7 @@ import style from "./style.module.scss";
 import { path } from "@/shared/routing";
 import github from "@/shared/assets/github.svg";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className={style.footer}>
       <div className={`${style.footer__wrapper} container`}>
@@ -32,4 +32,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

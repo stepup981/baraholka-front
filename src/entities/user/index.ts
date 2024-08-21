@@ -1,1 +1,1 @@
-export { default as Account } from "./ui/Account";
+export { default as User } from "./ui/User";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 
-import "../styles";
+import "@/app/styles";
 
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";

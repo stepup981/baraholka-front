@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import login from "@/features/login/api/login";
 import useUserStore from "@/entities/user/model/store";
 
 import { MainButton } from "@/shared/ui/buttons/main";
@@ -13,25 +12,18 @@ import { ErrorText } from "@/shared/ui/error-text";
 
 import { path } from "@/shared/routing";
 
-export default function LoginForm({ onLogin }: { onLogin: () => void }) {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { setInfoOnUser } = useUserStore();
+  const { loginUser } = useUserStore();
 
   const submitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
     try {
-      const userData = await login({ email, password });
-      localStorage.setItem("token", userData?.accessToken ?? "");
-      setInfoOnUser({
-        email: userData?.user.email,
-        isActivated: userData?.user.isActivated,
-        id: userData?.user.id,
-      });
-      onLogin();
+      await loginUser(email, password);
     } catch (error: any) {
       setError(error.response.data.message);
     }
@@ -61,4 +53,6 @@ export default function LoginForm({ onLogin }: { onLogin: () => void }) {
       </MainForm>
     </div>
   );
-}
+};
+
+export default LoginForm;

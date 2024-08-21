@@ -26,30 +26,3 @@ export const login = async ({
 export const logout = async (): Promise<void> => {
   return await axiosConfigUser.post("logout");
 };
-
-// export const login = async (query: IClientUser): Promise<IResponseUser> => {
-//   try {
-//     await axiosConfigUser.post('login', query)
-//   } catch (error: any) {
-//     console.log(error)
-//     throw error;
-//   }
-// }
-
-// export const logout = async (): Promise>void> => {
-//   try {
-//     await axiosConfigUser.post('logout')
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-// const checkAuth = async () => {
-//   try {
-//     const response = await axios.get('http://localhost:5000/api/refresh', {withCredentials: true})
-//     localStorage.setItem('token', response.data.accessToken)
-//   } catch (error) {
-//     console.log(error)
-//     throw error
-//   }
-// }

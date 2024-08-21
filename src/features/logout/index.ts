@@ -1,1 +1,1 @@
-export { default as AccountLogout } from "./ui/AccountLogout";
+export { default as UserLogout } from "./ui/UserLogout";

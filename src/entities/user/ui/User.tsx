@@ -1,12 +1,13 @@
 import React from "react";
-import useUserStore from "../model/store";
+import useUserStore from "@/entities/user/model/store";
 
-export default function Account() {
+const User = () => {
   const { user } = useUserStore();
-
   return (
     <div>
       <p>Email: {user.email}</p>
     </div>
   );
-}
+};
+
+export default User;

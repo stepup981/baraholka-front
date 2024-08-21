@@ -8,7 +8,7 @@ import { path } from "@/shared/routing";
 import profile from "@/shared/assets/profile.svg";
 import bag from "@/shared/assets/bag.svg";
 
-export default function ProfileNavbar() {
+const ProfileNavbar = () => {
   return (
     <div className={style.profileNavbar}>
       <Link href={path.profile}>
@@ -19,4 +19,6 @@ export default function ProfileNavbar() {
       </Link>
     </div>
   );
-}
+};
+
+export default ProfileNavbar;

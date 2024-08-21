@@ -8,7 +8,7 @@ import { ProfileNavbar } from "@/entities/profile-navbar";
 import { Logo } from "@/shared/ui/logo";
 import { path } from "@/shared/routing";
 
-export default function Header() {
+const Header = () => {
   return (
     <header className={style.header}>
       <div className={`${style.header__wrapper} container`}>
@@ -19,4 +19,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

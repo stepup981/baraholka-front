@@ -5,7 +5,7 @@ import { MainButton } from "@/shared/ui/buttons/main";
 import { Input } from "@/shared/ui/inputs/main-input";
 import { Title } from "@/shared/ui/title";
 
-export default function UI() {
+const UI = () => {
   return (
     <section>
       <Title level={1}>UI Kit</Title>
@@ -19,4 +19,6 @@ export default function UI() {
       </div>
     </section>
   );
-}
+};
+
+export default UI;

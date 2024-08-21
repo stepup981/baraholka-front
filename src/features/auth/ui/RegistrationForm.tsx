@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 
-import registration from "@/features/auth/api/registration";
 import {
   validateEmail,
   validatePassword,
 } from "@/features/auth/model/validation";
+
+import useUserStore from "@/entities/user/model/store";
 
 import { MainForm } from "@/shared/ui/forms/main";
 import { MainButton } from "@/shared/ui/buttons/main";
@@ -14,7 +15,8 @@ import { ErrorText } from "@/shared/ui/error-text";
 import { Title } from "@/shared/ui/title";
 import { Spinner } from "@/shared/ui/spinner";
 
-export default function RegistrationFrom() {
+const RegistrationForm = () => {
+  const { registrationUser, isLoading } = useUserStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<{
@@ -23,7 +25,6 @@ export default function RegistrationFrom() {
     general?: string;
   }>({});
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const submitRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,18 +39,12 @@ export default function RegistrationFrom() {
       return;
     }
 
-    setError({});
-    setRegistrationSuccess(false);
-
     try {
-      setIsLoading(true);
-      await registration({ email, password });
+      await registrationUser(email, password);
       setRegistrationSuccess(true);
     } catch (error: any) {
       const message = error.response?.data?.message;
       setError({ general: message });
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -87,4 +82,6 @@ export default function RegistrationFrom() {
       <MainButton>Confirm</MainButton>
     </MainForm>
   );
-}
+};
+
+export default RegistrationForm;
