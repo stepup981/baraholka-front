@@ -1,15 +1,22 @@
 "use client";
 import React from "react";
 
+import logout from "@/features/logout/api";
 import useUserStore from "@/entities/user/model/store";
-
 import { MainButton } from "@/shared/ui/buttons/main";
 
 const UserLogout = () => {
-  const { logoutUser } = useUserStore();
+  const { setUser, setIsLoggedIn } = useUserStore();
+
+  const submitLogout = () => {
+    logout();
+    setUser({});
+    setIsLoggedIn(false);
+    localStorage.removeItem("token");
+  };
   return (
     <div>
-      <MainButton onClick={() => logoutUser()}>Logout</MainButton>
+      <MainButton onClick={submitLogout}>Logout</MainButton>
     </div>
   );
 };

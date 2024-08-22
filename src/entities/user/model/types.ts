@@ -1,8 +1,3 @@
-export interface IClientUser {
-  email: string;
-  password: string;
-}
-
 export interface IUser {
   email: string | undefined;
   isActivated: boolean;

@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import {
   validateEmail,
   validatePassword,
-} from "@/features/auth/model/validation";
+} from "@/features/registration/model/validation";
 
+import registration from "@/features/registration/api";
 import useUserStore from "@/entities/user/model/store";
 
 import { MainForm } from "@/shared/ui/forms/main";
@@ -16,7 +17,6 @@ import { Title } from "@/shared/ui/title";
 import { Spinner } from "@/shared/ui/spinner";
 
 const RegistrationForm = () => {
-  const { registrationUser, isLoading } = useUserStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<{
@@ -25,6 +25,7 @@ const RegistrationForm = () => {
     general?: string;
   }>({});
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const { setIsLoading, isLoading } = useUserStore();
 
   const submitRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,11 +41,13 @@ const RegistrationForm = () => {
     }
 
     try {
-      await registrationUser(email, password);
+      setIsLoading(true);
+      await registration(email, password);
       setRegistrationSuccess(true);
     } catch (error: any) {
-      const message = error.response?.data?.message;
-      setError({ general: message });
+      setError({ general: error.response?.data?.message });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -64,7 +67,7 @@ const RegistrationForm = () => {
   return (
     <MainForm action="POST" onSubmit={submitRegistration}>
       <Input
-        type="text"
+        type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
