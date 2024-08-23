@@ -13,13 +13,5 @@ export const login = async (
 };
 
 export const checkAuth = async (): Promise<AxiosResponse<IResponseUser>> => {
-  // try {
-  //   const response = await axios.get('http://localhost:5000/api/refresh', {withCredentials: true})
-  //   console.log(response.data.accessToken)
-  //   localStorage.setItem('token', response.data.accessToken)
-  //   return response.data;
-  // } catch (error) {
-  //   console.log(error)
-  // }
   return await axiosConfigUser.get<IResponseUser>("refresh");
 };
