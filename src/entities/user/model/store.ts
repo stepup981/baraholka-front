@@ -4,7 +4,6 @@ import { IUser } from "./types";
 interface UserStore {
   user: IUser | {};
   isLoggedIn: boolean;
-  isLoading: boolean;
   setUser: (userInfo: IUser | {}) => void;
   setIsLoggedIn: (flag: boolean) => void;
 }
@@ -12,7 +11,6 @@ interface UserStore {
 const useUserStore = create<UserStore>((set) => ({
   user: {} as IUser,
   isLoggedIn: false,
-  isLoading: false,
   setUser: (userInfo) => {
     set({ user: userInfo });
   },

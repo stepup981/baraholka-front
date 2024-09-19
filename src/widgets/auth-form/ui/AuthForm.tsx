@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import useUserStore from "@/entities/user/model/store";
-
 import { MainButton } from "@/shared/ui/buttons/main";
 import { Input } from "@/shared/ui/inputs/main-input";
 import { MainForm } from "@/shared/ui/forms/main";
